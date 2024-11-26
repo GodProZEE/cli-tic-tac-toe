@@ -1,6 +1,7 @@
 class Player
   attr_reader :player_choice
   attr_accessor :turn
+
   def initialize
     @turn = false
     puts "Please choose between 0 and 1, 0 means O, 1 means X"
@@ -10,15 +11,14 @@ class Player
       @player_choice = gets.chomp
     end
 
-    if @player_choice == 0
-      @player_choice = "O"
-    else
-      @player_choice = "X"
-    end
+    @player_choice = if @player_choice == 0
+                       "O"
+                     else
+                       "X"
+                     end
   end
 
   def swap_turn
     @turn = @turn.!
   end
-
 end
