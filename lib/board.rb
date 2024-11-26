@@ -6,8 +6,7 @@ class Board
 
   def add_value(player)
     puts "Please enter a number between 0 and 8 to place your choice there: "
-    # @entry = gets.chomp.to_i
-    @entry = 7
+    @entry = gets.chomp.to_i
     for i in @grid
       for j in i
         if j == @entry

@@ -18,7 +18,7 @@ class Player
   end
 
   def swap_turn
-    turn = turn.!
+    @turn = @turn.!
   end
 
 end
