@@ -1,16 +1,16 @@
-class Board
+class Board # rubocop:disable Style/Documentation
   attr_accessor :grid, :number_of_turns
 
-  @@win_conditions = [[0, 1, 2],
-                      [3, 4, 5],
-                      [6, 7, 8],
-                      [0, 3, 6],
-                      [1, 4, 7],
-                      [2, 5, 8],
-                      [0, 4, 8],
-                      [2, 4, 6]]
-
   def initialize
+    @win_conditions = [[0, 1, 2],
+                       [3, 4, 5],
+                       [6, 7, 8],
+                       [0, 3, 6],
+                       [1, 4, 7],
+                       [2, 5, 8],
+                       [0, 4, 8],
+                       [2, 4, 6]]
+
     @grid = [[0, 1, 2], [3, 4, 5], [6, 7, 8]]
     @number_of_turns = 0
   end
@@ -39,11 +39,12 @@ class Board
   end
 
   def check_win
-    @@win_conditions.each do |condition|
-      if element_picker(condition[0]) == element_picker(condition[1]) && element_picker(condition[1]) == element_picker(condition[2])
-        puts "Win"
-        return true
-      end
+    @win_conditions.each do |condition|
+      next unless element_picker(condition[0]) == element_picker(condition[1]) &&
+                  element_picker(condition[1]) == element_picker(condition[2])
+
+      puts "Win"
+      return true
     end
     false
   end
